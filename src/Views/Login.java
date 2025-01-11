@@ -9,10 +9,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.*;
 import java.awt.*;
 
-public class LoginSignUp {
+public class Login{
     private JPanel mainPanel;
 
-    public LoginSignUp(JPanel panel) {
+    public Login(JPanel panel) {
         this.mainPanel = panel;
 
         mainPanel.setBounds(64, 70, 850, 560);
@@ -82,7 +82,7 @@ public class LoginSignUp {
         signup.setFont(new Font("Arial", Font.BOLD, 16));
         signup.setForeground(Color.WHITE);
         signup.setBackground(new Color(0, 0, 0, 0));
-         signup.setBounds(60, 390, 250, 40);
+         signup.setBounds(60, 380, 250, 40);
 
 
 
@@ -125,15 +125,15 @@ public class LoginSignUp {
         whiteLogo.setBounds(90, 160, 220, 210);
 
 
-        JLabel descripption =new JLabel("<html>GreenGuard is an innovative plant care app that  combines technology\n with nature to ensure your\n plants    thrive, flourish, grow and rise .</html>");
+        JLabel descripption =new JLabel("<html>GreenGuard is an innovative plant care app that  combines technology\n with nature to ensure your\n plants    thrive, flourish, grow and rise it</html>");
         descripption.setForeground(Color.white);
         descripption.setFont(new Font("Comic Sans MS", Font.PLAIN, 21));
-        descripption.setBounds(28,190,360,150);
+        descripption.setBounds(28,220,360,150);
 
         JLabel create= new JLabel("Choose your Plan!");
         create.setForeground(Color.white);
-        create.setFont(new Font("Arial", Font.BOLD, 15));
-        create.setBounds(113,297,360,150);
+        create.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+        create.setBounds(110,275,360,150);
 
         //add to panel
         mainPanel.add(welcome_title);
@@ -141,7 +141,7 @@ public class LoginSignUp {
         mainPanel.add(greenLogo);
         mainPanel.add(descripption);
 //        mainPanel.add(whiteLogo);
-        mainPanel.add(create);
+//        mainPanel.add(create);
         mainPanel.add(username);
         mainPanel.add(email);
         mainPanel.add(password);
@@ -166,7 +166,7 @@ public class LoginSignUp {
         myframe.getContentPane().setBackground(new Color(50,76,49,255));
         JPanel mainPanel = new JPanel();
 
-        LoginSignUp loginSignUp = new LoginSignUp(mainPanel);
+        Login  loginSignUp = new Login (mainPanel);
 
         myframe.add(loginSignUp.getMainPanel());
 
