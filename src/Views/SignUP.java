@@ -5,13 +5,20 @@ import Utils.RoundedButton;
 import Utils.RoundedButton_normal;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class SignUP {
 
-     private JPanel mainPanel;
+    private JPanel mainPanel;
+
+    private JLabel welcomeTitle;
+    private JLabel usernameLabel, emailLabel, passwordLabel, confirmPasswordLabel;
+    private JTextField usernameInput, emailInput;
+    private JPasswordField passwordInput, confirmPasswordInput;
+    public RoundedButton_normal signUpButton;
+    public RoundedButton loginButton;
+    public JCheckBox termsCheckbox;
+    private JLabel imageLabel, greenLogo, descriptionLabel;
 
     public SignUP(JPanel panel) {
         this.mainPanel = panel;
@@ -19,195 +26,143 @@ public class SignUP {
         mainPanel.setBounds(64, 70, 850, 560);
         mainPanel.setBackground(Color.white);
         mainPanel.setLayout(null);
-        //define components
-        JLabel welcome_title = new JLabel("Welcome !");
-        welcome_title.setFont(new Font("Arial", Font.BOLD, 26));
-        welcome_title.setForeground(new Color(98, 183, 54, 255));
-        welcome_title.setBounds(158, 100, 200, 30);
 
+        // Initialize components
+        welcomeTitle = new JLabel("Welcome !");
+        welcomeTitle.setFont(new Font("Arial", Font.BOLD, 26));
+        welcomeTitle.setForeground(new Color(98, 183, 54, 255));
+        welcomeTitle.setBounds(158, 100, 200, 30);
 
-        JLabel username =new JLabel("Username:");
-        username.setFont(new Font("Arial",Font.BOLD , 14));
-        username.setForeground(new Color(170,169,174,255));
-        username.setBounds(72,143,100,30);
+        usernameLabel = new JLabel("Username:");
+        usernameLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        usernameLabel.setForeground(new Color(170, 169, 174, 255));
+        usernameLabel.setBounds(72, 143, 100, 30);
 
+        usernameInput = new JTextField();
+        usernameInput.setBounds(70, 175, 315, 40);
+        usernameInput.setBorder(new RoundedBorder(Color.GRAY, 25, 2));
+        usernameInput.setFont(new Font("Arial", Font.PLAIN, 14));
+        usernameInput.setBackground(Color.WHITE);
 
+        emailLabel = new JLabel("Email:");
+        emailLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        emailLabel.setForeground(new Color(170, 169, 174, 255));
+        emailLabel.setBounds(72, 223, 100, 30);
 
+        emailInput = new JTextField();
+        emailInput.setBounds(70, 255, 315, 40);
+        emailInput.setBorder(new RoundedBorder(Color.GRAY, 25, 2));
+        emailInput.setFont(new Font("Arial", Font.PLAIN, 14));
+        emailInput.setBackground(Color.WHITE);
 
+        passwordLabel = new JLabel("Password:");
+        passwordLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        passwordLabel.setForeground(new Color(170, 169, 174, 255));
+        passwordLabel.setBounds(72, 303, 100, 30);
 
+        passwordInput = new JPasswordField();
+        passwordInput.setBounds(70, 335, 315, 40);
+        passwordInput.setBorder(new RoundedBorder(Color.GRAY, 25, 2));
+        passwordInput.setFont(new Font("Arial", Font.PLAIN, 14));
+        passwordInput.setBackground(Color.WHITE);
 
+        confirmPasswordLabel = new JLabel("Confirm Password:");
+        confirmPasswordLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        confirmPasswordLabel.setForeground(new Color(170, 169, 174, 255));
+        confirmPasswordLabel.setBounds(72, 383, 200, 30);
 
-        JTextField username_input = new JTextField();
-        username_input.setBounds(70, 175, 315, 40);
+        confirmPasswordInput = new JPasswordField();
+        confirmPasswordInput.setBounds(70, 415, 315, 40);
+        confirmPasswordInput.setBorder(new RoundedBorder(Color.GRAY, 25, 2));
+        confirmPasswordInput.setFont(new Font("Arial", Font.PLAIN, 14));
+        confirmPasswordInput.setBackground(Color.WHITE);
 
-        Border customBorder = new RoundedBorder(Color.GRAY, 25, 2);//(intesrface can not  be instantiate so for that we   instatiate with that class RoundedBorder  that extends  drom abstractborder that impolemts the interface )
-        username_input.setBorder(customBorder);
+        termsCheckbox = new JCheckBox("I accept terms & conditions");
+        termsCheckbox.setFont(new Font("Arial", Font.BOLD, 12));
+        termsCheckbox.setForeground(new Color(98, 183, 54, 255));
+        termsCheckbox.setOpaque(false);
+        termsCheckbox.setFocusPainted(false);
+        termsCheckbox.setBounds(72, 465, 200, 20);
 
-        username_input.setFont(new Font("Arial", Font.PLAIN, 14));
-        username_input.setBackground(Color.WHITE);
+        signUpButton = new RoundedButton_normal("Sign Up");
+        signUpButton.setFont(new Font("Arial", Font.BOLD, 15));
+        signUpButton.setForeground(Color.WHITE);
+        signUpButton.setBackground(new Color(98, 183, 54, 255));
+        signUpButton.setBounds(70, 495, 316, 40);
 
+        loginButton = new RoundedButton("Log In");
+        loginButton.setFont(new Font("Arial", Font.BOLD, 16));
+        loginButton.setForeground(Color.WHITE);
+        loginButton.setBackground(new Color(0, 0, 0, 0));
+        loginButton.setBounds(535, 340, 250, 40);
 
-
-
-        JLabel email =new JLabel("Email:");
-        email.setFont(new Font("Arial",Font.BOLD , 14));
-        email.setForeground(new Color(170,169,174,255));
-        email.setBounds(72,223,100,30);
-
-
-/// ///////email field
-        JTextField email_input = new JTextField();
-        email_input.setBounds(70, 255, 315, 40);
-        email_input.setBorder(customBorder);
-        email_input.setFont(new Font("Arial", Font.PLAIN, 14));
-        email_input.setBackground(Color.WHITE);
-
-
-        //password
-
-        JLabel password =new JLabel("Password:");
-        password.setFont(new Font("Arial",Font.BOLD , 14));
-        password.setForeground(new Color(170,169,174,255));
-        password.setBounds(72,303,100,30);
-
-
-
-        JTextField password_input = new JTextField();
-        password_input.setBounds(70, 335, 315, 40);
-        password_input.setBorder(customBorder);
-        password_input.setFont(new Font("Arial", Font.PLAIN, 14));
-        password_input.setBackground(Color.WHITE);
-
-        JLabel password_confirm =new JLabel("Confirm Password:");
-        password_confirm.setFont(new Font("Arial",Font.BOLD , 14));
-        password_confirm.setForeground(new Color(170,169,174,255));
-        password_confirm.setBounds(72,383,200,30);
-
-
-
-        JTextField password_input_confirm = new JTextField();
-        password_input_confirm.setBounds(70, 415, 315, 40);
-        password_input_confirm.setBorder(customBorder);
-        password_input_confirm.setFont(new Font("Arial", Font.PLAIN, 14));
-        password_input_confirm.setBackground(Color.WHITE);
-
-
-
-
-
-
-
-
-
-       /// //////sign up
-        RoundedButton_normal sign_up = new RoundedButton_normal("Sign Up");
-        sign_up.setFont(new Font("Arial", Font.BOLD, 15));
-        sign_up.setForeground(Color.WHITE);
-        sign_up.setBackground(new Color(98, 183, 54, 255));
-        sign_up.setBounds(70, 495, 316, 40);
-
-
-        RoundedButton login = new RoundedButton("Log In");
-        login.setFont(new Font("Arial", Font.BOLD, 16));
-        login.setForeground(Color.WHITE);
-        login.setBackground(new Color(0, 0, 0, 0));
-        login.setBounds(535, 340, 250, 40);
-
-
-
-
-        //add image
-        JLabel image_in_login = new JLabel();
+        imageLabel = new JLabel();
         ImageIcon imageIcon = new ImageIcon("back_plant/adrian-swancar-Y8W7j4ETCsc-unsplash.jpg");
-
-
         Image image = imageIcon.getImage();
         Image resizedImage = image.getScaledInstance(390, 560, Image.SCALE_SMOOTH);
-        ImageIcon resizedIcon = new ImageIcon(resizedImage);
+        imageLabel.setIcon(new ImageIcon(resizedImage));
+        imageLabel.setBounds(460, 0, 390, 560);
 
-        image_in_login.setIcon(resizedIcon);
-        image_in_login.setBounds(460, 0, 390, 560);
-
-
-        //green log
-        JLabel greenLogo = new JLabel();
-        ImageIcon imageIconLogoGreen = new ImageIcon("back_plant/greenn_logo_png.png");
-
-
-        Image imageGreen = imageIconLogoGreen.getImage();
-        Image resizedImageGreen = imageGreen.getScaledInstance(75, 100, Image.SCALE_SMOOTH);
-        ImageIcon resizedIconGreen = new ImageIcon(resizedImageGreen);
-
-        greenLogo.setIcon(resizedIconGreen);
+        greenLogo = new JLabel();
+        ImageIcon logoIcon = new ImageIcon("back_plant/greenn_logo_png.png");
+        Image logoImage = logoIcon.getImage();
+        Image resizedLogo = logoImage.getScaledInstance(75, 100, Image.SCALE_SMOOTH);
+        greenLogo.setIcon(new ImageIcon(resizedLogo));
         greenLogo.setBounds(2, 7, 75, 100);
 
-        //white logo
-//        JLabel whiteLogo = new JLabel();
-//        ImageIcon imageIconLogoWhite = new ImageIcon("back_plant/aaaaaaaa.png");
-//
-//
-//        Image imageWHite = imageIconLogoWhite.getImage();
-//        Image resizedImageWhite = imageWHite.getScaledInstance(220, 210, Image.SCALE_SMOOTH);
-//        ImageIcon resizedIconWhite = new ImageIcon(resizedImageWhite);
-//
-//        whiteLogo.setIcon(resizedIconWhite);
-//        whiteLogo.setBounds(90, 160, 220, 210);
+        descriptionLabel = new JLabel("<html>Join us today and unlock exclusive features or log in if you have one!</html>");
+        descriptionLabel.setForeground(Color.WHITE);
+        descriptionLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 21));
+        descriptionLabel.setBounds(485, 200, 355, 150);
+        mainPanel.add(descriptionLabel);
 
-
-        JLabel descripption =new JLabel("<html>Join us today and unlock exclusive features or log in if you have  one ! </html>");
-        descripption.setForeground(Color.white);
-        descripption.setFont(new Font("Comic Sans MS", Font.PLAIN, 21));
-        descripption.setBounds(485,200,355,150);
-
-
-
-        JCheckBox check =new JCheckBox("I accecpt terms & conditions ");
-        check.setFont(new Font("Arial",Font.BOLD , 12));
-        check.setForeground(new Color(98, 183, 54, 255));
-         check.setOpaque(false);
-        check.setFocusPainted(false);
-
-        check.setBounds(72,465,200,20);
-
-        //add to panel
-        mainPanel.add(welcome_title);
-        mainPanel.add(password_confirm);
+        mainPanel.add(welcomeTitle);
+        mainPanel.add(usernameLabel);
+        mainPanel.add(usernameInput);
+        mainPanel.add(emailLabel);
+        mainPanel.add(emailInput);
+        mainPanel.add(passwordLabel);
+        mainPanel.add(passwordInput);
+        mainPanel.add(confirmPasswordLabel);
+        mainPanel.add(confirmPasswordInput);
+        mainPanel.add(termsCheckbox);
+        mainPanel.add(signUpButton);
+        mainPanel.add(loginButton);
+        mainPanel.add(imageLabel);
         mainPanel.add(greenLogo);
-        mainPanel.add(login);
-        mainPanel.add(descripption);
-        mainPanel.add(username_input);
-        mainPanel.add(password_input);
-        mainPanel.add(username);
-        mainPanel.add(email);
-        mainPanel.add(check);
-
-        mainPanel.add(password);
-        mainPanel.add(password_input_confirm);
-        mainPanel.add(email_input);
-        mainPanel.add(sign_up);
-        mainPanel.add(image_in_login);
-
-
     }
 
     public JPanel getMainPanel() {
         return mainPanel;
     }
+    public String getUsernameInput(){
+        return usernameInput.getText();
+    }
+    public String getEmailInput(){
+        return emailInput.getText();
+    }
+    public  String getPasswordfield(){
+        return new String(passwordInput.getPassword());
 
-    public static void main(String[] args) {
-        JFrame myframe = new JFrame();
-        myframe.setTitle(" Sign-Up");
-        myframe.setSize(1000, 730);
-        myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        myframe.setLayout(null);
-        myframe.getContentPane().setBackground(new Color(50,76,49,255));
-        JPanel mainPanel = new JPanel();
+    }
+    public  String getPasswordfieldConfirm(){
+        return new String(confirmPasswordInput.getPassword());
 
-        SignUP  loginSignUp = new SignUP (mainPanel);
-
-        myframe.add(loginSignUp.getMainPanel());
-
-        myframe.setVisible(true);
     }
 
+
+    public static void main(String[] args) {
+        JFrame myFrame = new JFrame();
+        myFrame.setTitle("Sign-Up");
+        myFrame.setSize(1000, 730);
+        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myFrame.setLayout(null);
+        myFrame.getContentPane().setBackground(new Color(50, 76, 49, 255));
+        JPanel mainPanel = new JPanel();
+
+        SignUP signUp = new SignUP(mainPanel);
+
+        myFrame.add(signUp.getMainPanel());
+        myFrame.setVisible(true);
+    }
 }
