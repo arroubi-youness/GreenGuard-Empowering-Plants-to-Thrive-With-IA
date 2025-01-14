@@ -40,13 +40,9 @@ public class RoundedButton extends JButton {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         // Paint the background
-        if (getModel().isPressed()) {
-            g2d.setColor(backgroundColor.darker());
-        } else if (getModel().isRollover()) {
-            g2d.setColor(backgroundColor.brighter());
-        } else {
+
             g2d.setColor(backgroundColor);
-        }
+
 
         g2d.fill(new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, radius, radius));
 

@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 
-public class RoundedButton_normal extends JButton {
-    private final int radius = 25;
+public class Rounded_normal extends JButton {
+    private final int radius = 45;
     private Color backgroundColor;
 
-    public RoundedButton_normal(String text) {
+    public Rounded_normal(String text) {
         super(text);
         setContentAreaFilled(false); // Make the button's content area transparent
         setFocusPainted(false); // Remove the focus border
