@@ -6,18 +6,20 @@ import Views.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import Utils.static_plan_var;
 public class UserController {
 
      private UserSevice user_service= new UserSevice();
-
+      private  SubscriptionController subscriptionController=new SubscriptionController();
 
 
     public void register(String username,String email,String password,String confirm_passwod,JCheckBox termes_checked,String role){
         try {
             if (password.equals(confirm_passwod) && !password.isEmpty()){
                 users user_registered=user_service.registerUser(username,email,password,role);
-                JOptionPane.showMessageDialog(null, "Register Successful!");
+
+                 subscriptionController.Save_subsception(user_registered.getUser_id(),static_plan_var.var,"","","Pending");
+                JOptionPane.showMessageDialog(null, "Register Successful and your subscription is process!");
 
             }else if(username.isEmpty() || email.isEmpty() || password.isEmpty() || confirm_passwod.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Please fill all.", "Error", JOptionPane.ERROR_MESSAGE);

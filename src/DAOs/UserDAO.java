@@ -1,6 +1,8 @@
 package DAOs;
 import Models.users;
 import java.sql.*;
+
+import Services.SubscriptionService;
 import Utils.DBconnection;
 
 public class UserDAO {
@@ -9,9 +11,10 @@ public class UserDAO {
 
         String Qeury = "INSERT INTO Users (username, email, password_hash,role) VALUES (?, ?, ?,?)";
         Connection conn = DBconnection.getConnection();
-
-        try {
-             PreparedStatement stmt= conn.prepareStatement(Qeury,Statement.RETURN_GENERATED_KEYS);
+        ResultSet generatedKeys=null;
+        PreparedStatement stmt=null;
+         try {
+             stmt= conn.prepareStatement(Qeury,Statement.RETURN_GENERATED_KEYS);
              stmt.setString(1,user.getUsername());
              stmt.setString(2,user.getEmail());
              stmt.setString(3,user.getPassword());
@@ -19,7 +22,7 @@ public class UserDAO {
              int affectedRows = stmt.executeUpdate();
 
              if(affectedRows>0){
-                 ResultSet generatedKeys = stmt.getGeneratedKeys();
+                  generatedKeys = stmt.getGeneratedKeys();
                  if (generatedKeys.next()) {
                      int id = generatedKeys.getInt(1);
                      user.setUser_id(id);
@@ -32,8 +35,16 @@ public class UserDAO {
             System.err.println("Error during registring client: "+e.getMessage());
             throw new SQLIntegrityConstraintViolationException("Error during registring client",e);
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             System.err.println("General SQL error: " + e.getMessage());
+        }finally {
+            try {
+                if (generatedKeys != null) generatedKeys.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing resources: " + e.getMessage());
+            }
         }
       return  null;
 

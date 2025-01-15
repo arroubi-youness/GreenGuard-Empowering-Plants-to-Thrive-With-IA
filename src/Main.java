@@ -3,7 +3,12 @@
 
 public class Main {
     public static void main(String[] args) {
-        JFrame myFrame = new JFrame();
-        new MainController(myFrame);
+
+
+        SwingUtilities.invokeLater(() -> {
+            JFrame myFrame = new JFrame();
+            myFrame.setSize(985, 730);
+            new MainController(myFrame);
+        });
     }
 }

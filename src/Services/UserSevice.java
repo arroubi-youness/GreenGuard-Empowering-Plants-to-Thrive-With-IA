@@ -24,7 +24,6 @@ public class UserSevice {
             throw e;
         } catch (Exception e) {
             System.err.println("Unexpected error during registration: " + e.getMessage());
-
         }
         return null;
     }
