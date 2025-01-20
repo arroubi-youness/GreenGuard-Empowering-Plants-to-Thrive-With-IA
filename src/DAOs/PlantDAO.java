@@ -111,7 +111,7 @@ public class PlantDAO {
                 plant.setPlant_name(rs.getString("plant_name"));
                 plant.setSpecies_id(rs.getInt("species_id"));
                 plant.setLast_watered_date(rs.getString("last_watered_date"));
-                plant.setLast_fertilizing_date(rs.getString("last_fertilizing_date"));
+                plant.setLast_fertilizing_date(rs.getString("last_feltrizing"));
                 return plant;
             }
 

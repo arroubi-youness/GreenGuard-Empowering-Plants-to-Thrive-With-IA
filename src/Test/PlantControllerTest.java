@@ -45,4 +45,35 @@ class PlantControllerTest {
         }
 
     }
+
+    @Test
+    void FindByName(){
+        try {
+            PlantController a=new PlantController();
+            plants plant=a.Find_by_name("wargiya");
+            System.out.println("Plant ID: " + plant.getPlant_id());
+            System.out.println("User ID: " + plant.getUser_id());
+            System.out.println("Plant Name: " + plant.getPlant_name());
+            System.out.println("Species ID: " + plant.getSpecies_id());
+            System.out.println("Last Watered Date: " + plant.getLast_watered_date());
+            System.out.println("Last Fertilizing Date: " + plant.getLast_fertilizing_date());
+            System.out.println("----------------------------");
+
+
+        } catch (Exception e) {
+            fail("An exception occurred: " + e.getMessage());
+        }
+    }
+
+
+    @Test
+    void DeletePlant(){
+        try {
+            PlantController a=new PlantController();
+            a.Delete_Plant(1);
+         } catch (Exception e) {
+            fail("An exception occurred: " + e.getMessage());
+        }
+    }
+
 }

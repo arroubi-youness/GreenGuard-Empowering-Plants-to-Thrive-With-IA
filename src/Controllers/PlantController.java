@@ -74,11 +74,12 @@ public class PlantController {
             if (IsDeleted == true){
                 JOptionPane.showMessageDialog(null, "Plant deleted ! ", "Confirmation", JOptionPane.INFORMATION_MESSAGE);
             }else {
-                JOptionPane.showMessageDialog(null, "Error during deleting plant ", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error during deleting plant  ", "Error", JOptionPane.ERROR_MESSAGE);
 
             }
         }catch (SQLException e){
             e.printStackTrace();
+            System.out.println("error during deleting"+e);
             JOptionPane.showMessageDialog(null, "Error during Saving plant ", "Error", JOptionPane.ERROR_MESSAGE);
         }
         return  IsDeleted;

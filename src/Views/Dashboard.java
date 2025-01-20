@@ -199,16 +199,20 @@ public class Dashboard {
 
 
 
+/// ////contetnt panel
+
+        Content_dashboard=new JPanel();
+        Content_dashboard.setBounds(300,0,710, 692);
+        Content_dashboard.setBackground(Color.white);
+        Content_dashboard.setLayout(null);
+
+
+        AddPlantPanel addPlantPanel=new AddPlantPanel();
+       Content_dashboard.add(addPlantPanel.AddPlantPanel);
 
 
 
-
-
-
-
-
-
-
+      Dashboard_panel.add(Content_dashboard);
       Dashboard_panel.add(SideBar);
     }
 
