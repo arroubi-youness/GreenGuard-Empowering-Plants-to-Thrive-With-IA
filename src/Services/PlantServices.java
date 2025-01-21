@@ -11,11 +11,11 @@ public class PlantServices {
 
     private PlantDAO plant_Dao=new PlantDAO();
 
-     public  plants  Add_new_Palnt(int  user_Id,String  NamePlant, int Spices_id, String Last_water_Date, String last_feltrizing) throws SQLIntegrityConstraintViolationException {
+     public  plants  Add_new_Palnt(int  user_Id,String  NamePlant, int Spices_id, String Last_water_Date, String last_feltrizing,byte[] image) throws SQLIntegrityConstraintViolationException {
 
          try{
 
-             plants Plant_item=new plants(-1,user_Id,NamePlant,Spices_id,Last_water_Date,last_feltrizing);
+             plants Plant_item=new plants(-1,user_Id,NamePlant,Spices_id,Last_water_Date,last_feltrizing,image);
              return plant_Dao.AddPlant(Plant_item);
          }catch (SQLIntegrityConstraintViolationException e){
 

@@ -5,7 +5,10 @@ import Utils.RoundedButton_normal;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +19,8 @@ public class AddPlantPanel {
      public RoundedButton_normal Add_button,Upload;
      public String hiddenValue;
      private  JLabel plant_image;
+     //public  File selectedFile;
+     public byte[] fileBytes;
     public AddPlantPanel(){
         AddPlantPanel =new JPanel();
         AddPlantPanel.setBounds(0,0,710, 692);
@@ -61,9 +66,29 @@ public class AddPlantPanel {
         SpicesIdLabel.setBounds(170, 340, 100, 30);
 
         Map<String, String> optionsMap = new HashMap<>();
-        optionsMap.put("Option 1", "Hidden Value 1");
-        optionsMap.put("Option 2", "Hidden Value 2");
-        optionsMap.put("Option 3", "Hidden Value 3");
+        optionsMap.put("Spider Plant", "1");
+        optionsMap.put("Pothos (Devil’s Ivy)", "2");
+        optionsMap.put("Peace Lily", "3");
+        optionsMap.put("Snake Plant", "4");
+        optionsMap.put("ZZ Plant", "5");
+        optionsMap.put("Parlor Palm", "6");
+        optionsMap.put("Monstera Deliciosa", "7");
+        optionsMap.put("Boston Fern", "8");
+        optionsMap.put("Rubber Plant", "9");
+        optionsMap.put("Calathea", "10");
+        optionsMap.put("Aloe Vera", "11");
+        optionsMap.put("Dracaena Marginata", "12");
+        optionsMap.put("Fiddle Leaf Fig", "13");
+        optionsMap.put("Chinese Evergreen", "14");
+        optionsMap.put("Jade Plant", "15");
+        optionsMap.put("Philodendron", "16");
+        optionsMap.put("Anthurium", "17");
+        optionsMap.put("Cactus", "18");
+        optionsMap.put("Areca Palm", "19");
+        optionsMap.put("Lucky Bamboo", "20");
+
+
+
 
         comboBox = new JComboBox<>(optionsMap.keySet().toArray(new String[0]));
         comboBox.setBounds(170,370,315,40);
@@ -108,21 +133,39 @@ public class AddPlantPanel {
         Add_button.setForeground(Color.WHITE);
         Add_button.setBackground(new Color(81,173,168,255));
         Add_button.setBounds(240, 620, 236, 40);
+        Add_button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
 
         Upload = new RoundedButton_normal("Upload");
         Upload.setFont(new Font("Arial", Font.BOLD, 15));
         Upload.setForeground(Color.WHITE);
         Upload.setBackground(new Color(81,173,168,255));
         Upload.setBounds(170, 620, 63, 40);
+        Upload.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
 
         Upload.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
-
-             int returnValue = fileChooser.showOpenDialog(null);
+            int returnValue = fileChooser.showOpenDialog(null);
 
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
                 System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+
+                  fileBytes = null;
+                try (FileInputStream fileInputStream = new FileInputStream(selectedFile);
+                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
+
+                    byte[] buffer = new byte[1024];
+                    int length;
+                    while ((length = fileInputStream.read(buffer)) != -1) {
+                        byteArrayOutputStream.write(buffer, 0, length);
+                    }
+
+                    fileBytes = byteArrayOutputStream.toByteArray();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
 
                  ImageIcon selectedImageIcon = new ImageIcon(selectedFile.getAbsolutePath());
                 Image resizedImage = selectedImageIcon.getImage().getScaledInstance(180, 160, Image.SCALE_SMOOTH);

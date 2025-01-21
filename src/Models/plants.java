@@ -7,17 +7,18 @@ public class plants {
     private int species_id;
     private String last_watered_date;
     private String last_fertilizing_date;
-
+    private byte[] image;
     public plants() {
     }
 
-     public plants(int plant_id, int user_id, String plant_name, int species_id, String last_watered_date, String last_fertilizing_date) {
+     public plants(int plant_id, int user_id, String plant_name, int species_id, String last_watered_date, String last_fertilizing_date,byte[] image) {
         this.plant_id = plant_id;
         this.user_id = user_id;
         this.plant_name = plant_name;
         this.species_id = species_id;
         this.last_watered_date = last_watered_date;
         this.last_fertilizing_date = last_fertilizing_date;
+        this.image=image;
     }
 
      public int getPlant_id() {
@@ -66,6 +67,13 @@ public class plants {
 
     public void setLast_fertilizing_date(String last_fertilizing_date) {
         this.last_fertilizing_date = last_fertilizing_date;
+    }
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }
 

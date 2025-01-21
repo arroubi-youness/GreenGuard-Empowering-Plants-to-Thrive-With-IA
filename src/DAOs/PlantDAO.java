@@ -9,7 +9,7 @@ public class PlantDAO {
 
     public plants AddPlant(plants plant) throws SQLIntegrityConstraintViolationException {
 
-        String query = "INSERT INTO plants (user_id, plant_name, species_id, last_watered_date, last_feltrizing) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO plants (user_id, plant_name, species_id, last_watered_date, last_feltrizing,image_plant) VALUES (?, ?, ?, ?, ?,?)";
         Connection conn = DBconnection.getConnection();
         ResultSet generatedKeys = null;
         PreparedStatement stmt = null;
@@ -21,6 +21,7 @@ public class PlantDAO {
             stmt.setInt(3, plant.getSpecies_id());
             stmt.setString(4, plant.getLast_watered_date());
             stmt.setString(5, plant.getLast_fertilizing_date());
+            stmt.setBytes(6,plant.getImage());
 
 
             int affectedRows = stmt.executeUpdate();
@@ -73,6 +74,7 @@ public class PlantDAO {
                 plant.setSpecies_id(rs.getInt("species_id"));
                 plant.setLast_watered_date(rs.getString("last_watered_date"));
                 plant.setLast_fertilizing_date(rs.getString("last_feltrizing"));
+                plant.setImage(rs.getBytes("image_plant"));
                 plantList.add(plant);
             }
 
@@ -112,6 +114,8 @@ public class PlantDAO {
                 plant.setSpecies_id(rs.getInt("species_id"));
                 plant.setLast_watered_date(rs.getString("last_watered_date"));
                 plant.setLast_fertilizing_date(rs.getString("last_feltrizing"));
+                plant.setImage(rs.getBytes("image_plant"));
+
                 return plant;
             }
 

@@ -1,16 +1,17 @@
 package Controllers;
 
-import Views.Home;
-import Views.Login;
-import Views.SignUP;
+import Views.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
 import Utils.static_plan_var;
 public class MainController {
 
-     private JFrame myFrame;
+     private static JFrame myFrame;
 
 
     public MainController(JFrame frame) {
@@ -34,9 +35,15 @@ public class MainController {
 
 
 
+
+
+/// ///
         UserController userController = new UserController();
         userController.SignUpController(signUpPanel);
         userController.LoginController(loginPanel);
+
+
+
 
         myFrame.add(home_scroll);
 
@@ -95,8 +102,34 @@ public class MainController {
         });
 
 
+
+
+
         myFrame.setVisible(true);
 
      }
+    public static void Logged_in_home() {
+         myFrame.getContentPane().removeAll();
+        Home_logged_In homeLoggedIn =new Home_logged_In();
+        Home_logged_InController homeLoggedInController =new Home_logged_InController();
+        homeLoggedInController.AddEevents(homeLoggedIn);
+        JScrollPane DE=homeLoggedIn.getMainPanelScroll();
+        myFrame.add(DE);
+        myFrame.revalidate();
+        myFrame.repaint();
+    }
+    public static void showDashboard() {
+        myFrame.getContentPane().removeAll();
+        Dashboard dashboard = new Dashboard();
+        JPanel dash = dashboard.GetDashboardPanel();
+        PlantController plantController=new PlantController();
+        plantController.Dashboard(dashboard);
+         myFrame.add(dash);
+
+        myFrame.revalidate();
+        myFrame.repaint();
+    }
+
+
      }
 

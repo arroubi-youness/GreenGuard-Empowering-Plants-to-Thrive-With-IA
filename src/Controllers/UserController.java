@@ -11,7 +11,7 @@ public class UserController {
 
      private UserSevice user_service= new UserSevice();
       private  SubscriptionController subscriptionController=new SubscriptionController();
-
+      public static int  userId;
 
     public void register(String username,String email,String password,String confirm_passwod,JCheckBox termes_checked,String role){
         try {
@@ -50,8 +50,12 @@ public class UserController {
 
 
            } else if (!user_logged_in.getEmail().isEmpty()) {
+               userId=user_logged_in.getUser_id();
                System.out.println("Login successful for user: " + user_logged_in.getUsername());
                JOptionPane.showMessageDialog(null, "Login Successful!");
+
+               MainController.Logged_in_home();
+
            }
 
 

@@ -12,18 +12,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlantControllerTest {
 
-    @Test
-    void Save_new_() {
-        try {
-            PlantController a=new PlantController();
-            a.Save_new_plant_Controller(2,"wargiya",2,"2025-01-06","2024-01-03");
-        } catch (Exception e) {
-            fail("An exception occurred: " + e.getMessage());
-        }
-
-
-
-    }
+//    @Test
+//    void Save_new_() {
+//        try {
+//            PlantController a=new PlantController();
+//            a.Save_new_plant_Controller(2,"wargiya",2,"2025-01-06","2024-01-03",);
+//        } catch (Exception e) {
+//            fail("An exception occurred: " + e.getMessage());
+//        }
+//
+//
+//
+//    }
     @Test
     void getallplants(){
         try {

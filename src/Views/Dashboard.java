@@ -8,11 +8,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.border.*;
 public class Dashboard {
-    private JLabel activeLabel = null;
+    public JLabel activeLabel = null;
 
     private JPanel Dashboard_panel ;
     private RoundedPanel SideBar;
-    private  JPanel Content_dashboard;
+    public  JPanel Content_dashboard;
     public Rounded_normal log_out;
 
     public JLabel Add_Plants,Health_tracking,Overview,All_Plants;
@@ -86,105 +86,7 @@ public class Dashboard {
 
 
 
-         Overview.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (activeLabel != Overview) {
-                    setActiveStyle(Overview);
-                }
-            }
 
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (activeLabel != Overview) {
-                    setDefaultStyle(Overview);
-                }
-            }
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (activeLabel != null) {
-                    setDefaultStyle(activeLabel);
-                }
-                activeLabel = Overview;
-                setActiveStyle(Overview);
-            }
-        });
-
-         Add_Plants.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (activeLabel != Add_Plants) {
-                    setActiveStyle(Add_Plants);
-                }
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (activeLabel != Add_Plants) {
-                    setDefaultStyle(Add_Plants);
-                }
-            }
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (activeLabel != null) {
-                    setDefaultStyle(activeLabel);
-                }
-                activeLabel = Add_Plants;
-                setActiveStyle(Add_Plants);
-            }
-        });
-
-         All_Plants.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (activeLabel != All_Plants) {
-                    setActiveStyle(All_Plants);
-                }
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (activeLabel != All_Plants) {
-                    setDefaultStyle(All_Plants);
-                }
-            }
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (activeLabel != null) {
-                    setDefaultStyle(activeLabel);
-                }
-                activeLabel = All_Plants;
-                setActiveStyle(All_Plants);
-            }
-        });
-
-         Health_tracking.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                if (activeLabel != Health_tracking) {
-                    setActiveStyle(Health_tracking);
-                }
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (activeLabel != Health_tracking) {
-                    setDefaultStyle(Health_tracking);
-                }
-            }
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (activeLabel != null) {
-                    setDefaultStyle(activeLabel);
-                }
-                activeLabel = Health_tracking;
-                setActiveStyle(Health_tracking);
-            }
-        });
 
 
         /// //add  component to  sidebar
@@ -207,8 +109,7 @@ public class Dashboard {
         Content_dashboard.setLayout(null);
 
 
-        AddPlantPanel addPlantPanel=new AddPlantPanel();
-       Content_dashboard.add(addPlantPanel.AddPlantPanel);
+
 
 
 
@@ -221,13 +122,13 @@ public class Dashboard {
     public  JPanel GetDashboardPanel(){
         return Dashboard_panel;
     }
-    private void setDefaultStyle(JLabel label) {
+    public void setDefaultStyle(JLabel label) {
         label.setBackground(new Color(81,173,168,255));
         label.setForeground(Color.WHITE);
         label.repaint();
     }
 
-     private void setActiveStyle(JLabel label) {
+     public void setActiveStyle(JLabel label) {
         label.setBackground(Color.white);
         label.setForeground(new Color(81,173,168,255));
         label.repaint();
