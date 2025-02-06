@@ -49,7 +49,7 @@ public class UserDAO {
       return  null;
 
     }
-
+///////add more method
 
     public users getUserbyId(int id) {
         String query = "SELECT * FROM users WHERE user_id=?";
