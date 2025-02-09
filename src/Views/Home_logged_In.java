@@ -109,7 +109,7 @@ public class Home_logged_In {
         big_title.setBounds(80, 230, 500, 120);
 
 
-        JLabel sous_title= new JLabel("<html>GreenGuard is an innovative plant care app that blends technology with nature, helping your plants thrive, flourish, and grow to their fullest <br> potential.   </htmml>");
+        JLabel sous_title= new JLabel("<html>GreenGuard is an innovative plant care application that blends technology with nature, helping your plants thrive, flourish, and grow to their fullest <br> potential.   </htmml>");
         sous_title.setFont(new Font("Arial", Font.PLAIN, 17));
         sous_title.setForeground(Color.BLACK);
         sous_title.setBounds(80, 370, 520, 70);
@@ -213,7 +213,7 @@ public class Home_logged_In {
         titleFooter.setBounds(60, 35, 200, 30);
 
 
-        JLabel my_infos = new JLabel("<html>Arrouyouness215@gmail.com<br><br>0621728280<br><br></html>");
+        JLabel my_infos = new JLabel("<html>arrouyouness215@gmail.com<br><br>0621728280<br><br></html>");
         my_infos.setFont(new Font("Arial", Font.PLAIN, 16));
         my_infos.setBounds(60, 70, 220, 90);
         my_infos.setForeground(Color.BLACK);
@@ -270,7 +270,7 @@ public class Home_logged_In {
         github.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
 
-        Linkdeien = new JLabel("Linkdein Developer");
+        Linkdeien = new JLabel("LinkdeIn Developer");
         Linkdeien.setFont(new Font("Arial", Font.PLAIN, 16));
         Linkdeien.setBounds(710, 105, 220, 20);
         Linkdeien.setForeground(Color.BLACK);
