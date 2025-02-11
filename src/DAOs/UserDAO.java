@@ -117,7 +117,7 @@ public class UserDAO {
                 if (stmt != null) stmt.close();
                 if (conn != null) conn.close();
             } catch (SQLException e) {
-                System.err.println("Error closing resources: " + e.getMessage());
+                System.err.println("Error closing resources: try  it  plesse and  re make it  " + e.getMessage());
             }
         }
 
