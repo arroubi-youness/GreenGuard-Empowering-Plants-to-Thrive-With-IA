@@ -67,6 +67,7 @@ public class SignUP {
         passwordInput.setBackground(Color.WHITE);
 
         confirmPasswordLabel = new JLabel("Confirm Password:");
+//////be  careful  here when you  wanna change 
         confirmPasswordLabel.setFont(new Font("Arial", Font.BOLD, 14));
         confirmPasswordLabel.setForeground(new Color(170, 169, 174, 255));
         confirmPasswordLabel.setBounds(72, 383, 200, 30);
