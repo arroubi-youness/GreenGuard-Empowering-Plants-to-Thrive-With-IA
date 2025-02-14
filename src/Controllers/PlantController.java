@@ -45,7 +45,7 @@ public class PlantController {
         }catch (SQLException e){
 
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error during retrieving all plant ", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error during retrieving all plant  from database", "Error", JOptionPane.ERROR_MESSAGE);
 
         }
 
