@@ -10,7 +10,7 @@ class UserSeviceTest {
     @Test
     void registerUser() {
          String username = "testuser";
-        String email = "testuser@example.com";
+        String email = "testuser@examplwewewe.com";
         String password = "password123";
         String role = "USER";
 
