@@ -37,7 +37,7 @@ public class RoundedButton_normal extends JButton {
         // Draw the text
         FontMetrics metrics = g2d.getFontMetrics(getFont());
         Rectangle stringBounds = metrics.getStringBounds(getText(), g2d).getBounds();
-
+//////////just  focuss  on  logic not   code
         int textX = (getWidth() - stringBounds.width) / 2;
         int textY = (getHeight() - stringBounds.height) / 2 + metrics.getAscent();
 
